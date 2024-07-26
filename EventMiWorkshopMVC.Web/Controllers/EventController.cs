@@ -58,7 +58,7 @@ namespace EventMiWorkshopMVC.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditEventFromModel model)
+        public async Task<IActionResult> Edit(int? id, EditEventFromModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace EventMiWorkshopMVC.Web.Controllers
 
             try
             {
-                await eventService.EditEventById(id, model);
+                await eventService.EditEventById(id.Value, model);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -76,5 +76,48 @@ namespace EventMiWorkshopMVC.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            try
+            {
+                var formModel = await eventService.GetEventById(id.Value);
+
+                return View(formModel);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id, EditEventFromModel model)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            try
+            {
+                await eventService.DeleteEventById(id.Value);
+
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+
     }
 }

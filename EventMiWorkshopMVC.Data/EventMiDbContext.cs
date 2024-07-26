@@ -23,5 +23,12 @@ namespace EventMiWorkshopMVC.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Event>()
+                .Property(e => e.IsActive)
+                .HasDefaultValue(true);
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace EventMiWorkshopMVC.Services.Data.Interfaces
         Task AddEvent(AddEventFromModel model);
         Task<EditEventFromModel> GetEventById (int id);
         Task EditEventById(int id, EditEventFromModel model);
+        Task DeleteEventById(int id);
     }
 }
