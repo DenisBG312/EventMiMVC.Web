@@ -1,0 +1,172 @@
+﻿/* General Styles */
+body {
+    background-color: #e9eff1;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+h2.text-center {
+    margin-top: 2rem;
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    letter-spacing: 1.5px;
+}
+
+/* Separator Line */
+hr {
+    border: 0;
+    border-top: 4px solid #007bff;
+    margin: 2rem 0;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+/* Container Styles */
+.row.mx-auto {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.col-lg-8, .col-xl-6 {
+    position: relative;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 0 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .col-lg-8::before, .col-xl-6::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background: radial-gradient(circle at center, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0));
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .col-lg-8:hover::before, .col-xl-6:hover::before {
+        opacity: 0.6;
+    }
+
+    .col-lg-8:hover, .col-xl-6:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+/* Text Styles */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.font-weight-bold {
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+    color: #dc3545;
+}
+
+/* Button Styles */
+.btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Edit Button Style */
+.btn-edit {
+    background: linear-gradient(135deg, #fbc531, #e67e22);
+    border: 2px solid transparent;
+}
+
+    .btn-edit::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .btn-edit:hover::before {
+        opacity: 0;
+    }
+
+    .btn-edit:hover {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        border: 2px solid #f39c12;
+    }
+
+/* Delete Button Style */
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: 2px solid transparent;
+}
+
+    .btn-danger::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .btn-danger:hover::before {
+        opacity: 0;
+    }
+
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #c82333, #a71d2a);
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        border: 2px solid #c82333;
+    }
+
+/* Icon Styling */
+.btn .btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
