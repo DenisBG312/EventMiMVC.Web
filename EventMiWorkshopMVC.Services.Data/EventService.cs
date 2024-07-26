@@ -92,5 +92,36 @@ namespace EventMiWorkshopMVC.Services.Data
             eventToDelete.IsActive = false;
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task<List<Event>> GetAllEventsAsync()
+        {
+            var allEvents = await dbContext.Events.ToListAsync();
+
+            var activeEvents = new List<Event>();
+
+            foreach (var currEvent in allEvents)
+            {
+                if (!currEvent.IsActive!.Value)
+                {
+                    continue;
+                }
+
+                activeEvents.Add(currEvent);
+            }
+
+            return activeEvents;
+        }
+
+        public async Task<Event> GetEventDetailsAsync(int id)
+        {
+            var model = await dbContext.Events.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (model == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return model;
+        }
     }
 }

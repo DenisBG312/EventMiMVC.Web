@@ -1,4 +1,6 @@
-﻿using EventMiWorkshopMVC.Services.Data.Interfaces;
+﻿using EventMiWorkshopMVC.Data.Models;
+using EventMiWorkshopMVC.Services.Data;
+using EventMiWorkshopMVC.Services.Data.Interfaces;
 using EventMiWorkshopMVC.Web.ViewModels.Event;
 using Microsoft.AspNetCore.Mvc;
 
@@ -115,6 +117,32 @@ namespace EventMiWorkshopMVC.Web.Controllers
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+
+
+        public async Task<IActionResult> All()
+        {
+            var events = await eventService.GetAllEventsAsync();
+            return View(events);
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            try
+            {
+                Event model = await eventService.GetEventDetailsAsync(id.Value);
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Home");
             }
         }
 
