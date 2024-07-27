@@ -14,3 +14,6 @@ SOLID Principles with solid design ✔️
 Soft Deletion included ✔️
 
 Happy storing your events 🙂
+
+
+![App Screenshot](https://i.postimg.cc/FHvrfGLC/Screenshot-2024-07-26-232817.png)
