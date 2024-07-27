@@ -11,4 +11,6 @@ Working Validations ✔️
 
 SOLID Principles with solid design ✔️
 
+Soft Deletion included ✔️
+
 Happy storing your events 🙂
