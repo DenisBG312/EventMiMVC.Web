@@ -15,7 +15,7 @@ namespace EventMiWorkshopMVC.Web.ViewModels.Event
         public DateTime EndDate { get; set; }
 
         [Required]
-        [StringLength(EventPlaceMaxLength, MinimumLength = EventNameMinLength)]
+        [StringLength(EventPlaceMaxLength, MinimumLength = EventPlaceMinLength)]
         public string Place { get; set; } = null!;
     }
 }
